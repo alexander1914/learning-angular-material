@@ -1,5 +1,3 @@
-
-
 import * as express from 'express';
 import {Application} from "express";
 import {getAllCourses, getCourseById} from "./get-courses.route";

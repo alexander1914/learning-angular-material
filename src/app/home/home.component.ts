@@ -23,6 +23,8 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
 
         const courses$ = this.coursesService.findAllCourses();
+        console.log(courses$);
+        
 
         this.beginnerCourses$ = courses$.pipe(
           map(courses => courses.filter(course => course.category === 'BEGINNER') )
