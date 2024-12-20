@@ -20,20 +20,30 @@ export class HomeComponent implements OnInit {
 
     }
 
-    ngOnInit() {
-
+    ngOnInit() {        
         const courses$ = this.coursesService.findAllCourses();
-        console.log(courses$);
+        console.log('Courses Observable:', courses$);
         
+        this.beginnerCourses$ = courses$.pipe(
+            map(res => {
+              console.log('API Response:', res);
+              return res["payload"];
+            })
+        );
 
         this.beginnerCourses$ = courses$.pipe(
-          map(courses => courses.filter(course => course.category === 'BEGINNER') )
-        );
-
-        this.advancedCourses$ = courses$.pipe(
-            map(courses => courses.filter(course => course.category === 'ADVANCED') )
-        );
-
+            map(courses => {
+              console.log('Beginner Courses:', courses.filter(course => course.category === 'BEGINNER'));
+              return courses.filter(course => course.category === 'BEGINNER');
+            })
+          );
+          
+          this.advancedCourses$ = courses$.pipe(
+            map(courses => {
+              console.log('Advanced Courses:', courses.filter(course => course.category === 'ADVANCED'));
+              return courses.filter(course => course.category === 'ADVANCED');
+            })
+          );
     }
 
 }
