@@ -23,11 +23,11 @@ export class HomeComponent implements OnInit {
     const courses$ = this.coursesService.findAllCourses();
 
     this.beginnerCourses$ = courses$.pipe(
-      map(courses => courses.filter(course => course.category === 'BEGINNER'))
+      map(courses => courses.filter(course => course.category === "BEGINNER"))
     );
 
     this.advancedCourses$ = courses$.pipe(
-      map(courses => courses.filter(course => course.category === 'ADVANCED'))
+      map(courses => courses.filter(course => course.category === "ADVANCED"))
     );
 
   }
