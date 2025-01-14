@@ -1,7 +1,7 @@
 <div [formGroup]="form" class="course-details-form">
 
     <mat-form-field floatLabel="always">
-        <input matInput placeholder="Course title" formControlName="title" #title>        
+        <input matInput placeholder="Course title" formControlName="title" #title>
 
         <mat-hint align="end">
             {{title.value.length}} / 60
@@ -23,10 +23,42 @@
     </mat-form-field>
 
     <mat-radio-group class="course-type" formControlName="courseType">
-        
+
         <mat-radio-button value="free">Free</mat-radio-button>
         <mat-radio-button value="premium">Premium</mat-radio-button>
 
     </mat-radio-group>
+
+    <mat-form-field appearance="fill">
+        <mat-select formControlName="category" placeholder="Select category">
+
+            <mat-option>None</mat-option>
+
+            <mat-optgroup label="beginners">
+                <mat-option value="newprogramming">New to Programming</mat-option>
+                <mat-option value="newjavascript">New to JavaScript</mat-option>
+                <mat-option value="newangular">New to Angular</mat-option>
+            </mat-optgroup>
+            
+            <mat-option value="intermediate">Intermediate</mat-option>
+            <mat-option value="advanced">Advanced</mat-option>
+
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+
+        <input matInput formControlName="releasedAt" 
+                placeholder="Release date" [matDatepicker]="releasedAtPicker">
+
+        <mat-datepicker-toggle matSuffix [for]="releasedAtPicker">
+
+        </mat-datepicker-toggle>
+
+        <mat-datepicker #releasedAtPicker>
+
+        </mat-datepicker>
+
+    </mat-form-field>
 
 </div>
