@@ -55,9 +55,21 @@
 
         </mat-datepicker-toggle>
 
-        <mat-datepicker #releasedAtPicker>
+        <mat-datepicker #releasedAtPicker [dateClass]="dateClass">
 
         </mat-datepicker>
+
+    </mat-form-field>
+
+    <mat-checkbox color="primary" formControlName="downloadsAllowed" [indeterminate]="true">
+
+        Downloads allowed?
+
+    </mat-checkbox>
+
+    <mat-form-field appearance="outline">
+
+        <textarea matInput placeholder="Description" formControlName="longDescription"></textarea>
 
     </mat-form-field>
 
