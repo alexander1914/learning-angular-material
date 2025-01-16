@@ -1,20 +1,20 @@
-
 <div class="courses-panel">
 
   <div class="header">
 
     <h2 class="title">All Courses</h2>
 
-    <button mat-mini-fab routerLink="/add-new-course">
+    <button mat-mini-fab routerLink="/add-new-course" matTooltip="Create a course" matTooltipPosition="above"
+      [matTooltipShowDelay]="1000" [matTooltipHideDelay]="2000">
       <mat-icon class="add-course-btn">add</mat-icon>
     </button>
 
   </div>
-  
+
   <mat-tab-group>
 
     <mat-tab label="Beginners">
-      
+
       <courses-card-list [courses]="beginnerCourses$ | async">
 
       </courses-card-list>
@@ -22,7 +22,7 @@
     </mat-tab>
 
     <mat-tab label="Advanced">
-      
+
       <courses-card-list [courses]="advancedCourses$ | async">
 
       </courses-card-list>
@@ -32,4 +32,3 @@
   </mat-tab-group>
 
 </div>
-
