@@ -1,23 +1,18 @@
+<div class="edit-course-form">
 
+  <h2 mat-dialog-title>{{description}}</h2>
 
+  <mat-dialog-content [formGroup]="form">
 
+    <mat-form-field>
 
-
-
-<!--
-
-     <mat-form-field>
-
-      <input matInput
-             placeholder="Course Description"
-             formControlName="description">
+      <input matInput placeholder="Course Description" formControlName="description">
 
     </mat-form-field>
 
     <mat-form-field>
 
-      <mat-select placeholder="Select category"
-                  formControlName="category">
+      <mat-select placeholder="Select category" formControlName="category">
 
         <mat-option value="BEGINNER">
           Beginner</mat-option>
@@ -32,11 +27,9 @@
 
     <mat-form-field>
 
-      <input matInput [matDatepicker]="myDatepicker"
-             formControlName="releasedAt">
+      <input matInput [matDatepicker]="myDatepicker" formControlName="releasedAt">
 
-      <mat-datepicker-toggle matSuffix
-                             [for]="myDatepicker">
+      <mat-datepicker-toggle matSuffix [for]="myDatepicker">
 
       </mat-datepicker-toggle>
 
@@ -46,14 +39,19 @@
 
     <mat-form-field>
 
-        <textarea matInput placeholder="Description"
-                  formControlName="longDescription">
+      <textarea matInput placeholder="Description" formControlName="longDescription">
 
         </textarea>
 
     </mat-form-field>
 
+  </mat-dialog-content>
 
+  <mat-dialog-actions>
 
+    <button mat-raised-button (click)="close()">Close</button>
 
- -->
+    <button mat-raised-button color="primary" (click)="save()">Save</button>
+
+  </mat-dialog-actions>
+</div>
