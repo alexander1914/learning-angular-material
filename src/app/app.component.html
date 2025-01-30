@@ -1,5 +1,5 @@
 <mat-sidenav-container fullscreen>
-    
+
     <mat-sidenav #sidenav>
         <mat-nav-list (click)="sidenav.close()">
 
@@ -11,6 +11,11 @@
             <a mat-list-item routerLink="about">
                 <mat-icon>question_answer</mat-icon>
                 <span>About</span>
+            </a>
+
+            <a mat-list-item routerLink="drag-drop-example">
+                <mat-icon>drag_indicator</mat-icon>
+                <span>Drag and Drop</span>
             </a>
 
             <a mat-list-item routerLink="/">

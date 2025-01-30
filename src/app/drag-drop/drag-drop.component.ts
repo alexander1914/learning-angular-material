@@ -1,15 +1,42 @@
-import {Component} from '@angular/core';
-import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
-import {Lesson} from '../model/lesson';
+import { Component } from '@angular/core';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { Lesson } from '../model/lesson';
 
 
 @Component({
-    selector: 'drag-drop-example',
-    templateUrl: "drag-drop.component.html",
-    styleUrls: ["drag-drop.component.scss"],
-    standalone: false
+  selector: 'drag-drop-example',
+  templateUrl: "drag-drop.component.html",
+  styleUrls: ["drag-drop.component.scss"],
+  standalone: false
 })
 export class DragDropComponent {
+
+  drop(event: CdkDragDrop<Lesson[]>) {
+
+    console.log("previousInedex: ", event.previousIndex);
+    console.log("currentIndex: ", event.currentIndex);
+
+    moveItemInArray(this.lessons, event.previousIndex, event.currentIndex);
+
+  }
+
+  dropMultlist(event: CdkDragDrop<Lesson[]>) {
+
+    if (event.previousContainer == event.container) {
+      moveItemInArray(this.lessons, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+
+    }
+
+  }
+
+  done = [];
 
   lessons = [
     {
@@ -88,7 +115,6 @@ export class DragDropComponent {
       'duration': '12:37',
       'seqNo': 11,
       courseId: 11
-    }
-  ];
+    }];
 
 }
