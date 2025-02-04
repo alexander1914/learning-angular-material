@@ -20,6 +20,8 @@ export class CoursesCardListComponent implements OnInit {
 
     rowHeigth = '500px';
 
+    handsetPortrait = false;
+
     constructor(private dialog: MatDialog, private responsive: BreakpointObserver) { }
 
     ngOnInit() {
@@ -33,6 +35,7 @@ export class CoursesCardListComponent implements OnInit {
 
                 this.cols = 3;
                 this.rowHeigth = "500px";
+                this.handsetPortrait = false;
 
                 const brekpoints = result.breakpoints;
 
@@ -40,7 +43,8 @@ export class CoursesCardListComponent implements OnInit {
                     this.cols = 1;
                 } else if (brekpoints[Breakpoints.HandsetPortrait]) {
                     this.cols = 1;
-                    this.rowHeigth = "430px"
+                    this.rowHeigth = "430px";
+                    this.handsetPortrait = true;
                 } else if (brekpoints[Breakpoints.HandsetLandscape]) {
                     this.cols = 1;
                 } else if (brekpoints[Breakpoints.TabletLandscape]) {
