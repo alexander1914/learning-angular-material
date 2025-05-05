@@ -1,5 +1,3 @@
-
-
 .tree-demo-container {
   font-family: "Roboto";
   display: flex;
@@ -11,10 +9,6 @@
 .leaf-node {
   padding-left: 30px;
 }
-
-
-
-
 
 .example-tree-invisible {
   display: none;
@@ -40,6 +34,6 @@
  * Leaf nodes need to have padding so as to align with other non-leaf nodes
  * under the same parent.
  */
-.example-tree .nested-node > .mat-tree-node {
+.example-tree .nested-node>.mat-tree-node {
   padding-left: 40px;
 }
