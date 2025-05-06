@@ -1,11 +1,17 @@
 @use '@angular/material' as mat;
 /* You can add global styles to this file, and also import other style files */
-
 @import "@angular/material/prebuilt-themes/indigo-pink.css";
 
-/*@import "./mixins";*/
+/*
+    Custom css with material
+    I can't use here because my old version
+    
+    For example:
+    https://github.com/angular-university/angular-material-course/blob/master/src/styles.scss 
+*/
+@include mat.core();
 
-@include responsive-dialogs();
+/*@import "./mixins";*/
 
 .highligth-date {
     background: red;
